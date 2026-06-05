@@ -2,75 +2,89 @@
 
 Static public website for Ora at `oracoach.app`.
 
-This repository is intended only for public website files used by GitHub Pages,
-TestFlight, and App Store Connect support/privacy URLs. Do not add app source
-code, backend code, API keys, secrets, environment files, private notes, or
-internal business documents.
+This repository contains only the public marketing and support website used for
+GitHub Pages, TestFlight, and App Store Connect support/privacy URLs. Do not add
+private app source code, backend functions, backend code, credentials,
+environment files, internal notes, Flutter build output, or private business
+documents.
 
-## Pages
+The authenticated Ora app is a separate private deployment intended for
+`https://app.oracoach.app`. This public repository should only link to that app
+URL; it should not contain the app source, backend code, deployment secrets, or
+compiled app artifacts. See `ARCHITECTURE.md` for the split-domain architecture.
 
-- `/` - public homepage
-- `/privacy/` - starter beta privacy policy
-- `/support/` - beta support page
+## Site shape
+
+- `/` - Ora marketing homepage copied from the main repo's public `web_seo/` bundle.
+- `/privacy/` - public privacy policy.
+- `/support/` - beta support page.
+- SEO routes: `/workout-tracker/`, `/nutrition-tracker/`, `/progress-tracker/`,
+  `/reports/`, `/coach-console/`, `/ai-fitness-coach/`, `/biomechanics-lab/`,
+  `/local-first-fitness-app/`, and `/mobile-check/`.
+- `/robots.txt` and `/sitemap.xml`.
+- App access links point to `https://app.oracoach.app`, which should be deployed
+  from the private app repo or another private web app repo.
+
+## Build and package manager
+
+There is no framework, package manager, install step, or build command in this
+repository. The site is plain static HTML/CSS/JS and public image assets.
+
+The beta form is static: it opens a prefilled email to
+`support@oracoach.app` instead of posting to a private backend.
 
 ## GitHub Pages deployment
 
 1. Open the repository on GitHub.
 2. Go to **Settings** -> **Pages**.
-3. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
-4. Set **Branch** to `main` and folder to `/ (root)`.
-5. Save the settings.
-6. In **Custom domain**, enter `oracoach.app`.
-7. Keep **Enforce HTTPS** enabled once GitHub finishes provisioning the
-   certificate.
+3. Set **Source** to **Deploy from a branch**.
+4. Set the branch to the current public website branch, currently
+   `codex/static-website`, and the folder to `/ (root)`.
+5. Confirm the custom domain is `oracoach.app`.
+6. Keep **Enforce HTTPS** enabled after GitHub provisions the certificate.
 
-The included `CNAME` file should contain exactly:
+The included `CNAME` file must contain exactly:
 
 ```text
 oracoach.app
 ```
 
-## Namecheap DNS records
-
-Add these records manually in Namecheap DNS for the `oracoach.app` domain:
-
-```text
-Type   Host   Value              TTL
-A      @      185.199.108.153    Automatic
-A      @      185.199.109.153    Automatic
-A      @      185.199.110.153    Automatic
-A      @      185.199.111.153    Automatic
-CNAME  www    ora-sps.github.io  Automatic
-```
-
-## Confirm HTTPS
-
-After DNS and GitHub Pages are configured:
-
-1. Wait for DNS propagation and certificate provisioning.
-2. Open `https://oracoach.app/`.
-3. Confirm the browser shows a valid HTTPS connection.
-4. Open `https://oracoach.app/privacy/` and `https://oracoach.app/support/`.
-5. Confirm GitHub Pages has **Enforce HTTPS** checked in repository settings.
-
-## App Store Connect URL checklist
-
-Before using the URLs in App Store Connect:
-
-1. Review the starter beta privacy policy with counsel or the responsible
-   product owner before public App Store launch.
-2. Confirm `https://oracoach.app/privacy/` loads over HTTPS.
-3. Confirm `https://oracoach.app/support/` loads over HTTPS.
-4. Confirm `support@oracoach.app` is active and monitored.
-5. Confirm GitHub Pages is serving the latest `main` branch.
-
 ## Local preview
 
-Because the site is plain static HTML/CSS, it can be previewed with any local
-static server:
+Run a static server from the repository root:
 
 ```bash
 python3 -m http.server 8000
 ```
 
 Then open `http://localhost:8000/`.
+
+## App subdomain deployment
+
+Deploy the authenticated app from the private Ora app repo or a separate private
+web app repo. Do not deploy it from `ora-site`.
+
+For the current private Flutter web setup, the preferred app subdomain shape is
+`https://app.oracoach.app/`, built with a root base href such as:
+
+```bash
+flutter build web --base-href /
+```
+
+Configure `app.oracoach.app` in the private hosting provider, add it to Firebase
+Auth authorized domains if Firebase Auth is used, and add only the DNS records
+shown by that provider. For Firebase Hosting, the custom-domain wizard may
+require ownership TXT records and a subdomain CNAME. Use Firebase's displayed
+records as the source of truth.
+
+## Verification checklist
+
+- `git diff --check`
+- Confirm `CNAME` contains exactly `oracoach.app`.
+- Confirm app-access links point to `https://app.oracoach.app`.
+- Confirm `/`, `/privacy/`, `/support/`, `/robots.txt`, `/sitemap.xml`, and SEO
+  routes return HTTP 200 from a local static server.
+- Confirm no private app code, backend functions, credentials, environment files,
+  or backend config are present.
+- Confirm `https://oracoach.app/`, `https://oracoach.app/privacy/`, and
+  `https://oracoach.app/support/` load over HTTPS after deployment.
