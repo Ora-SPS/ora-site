@@ -8,6 +8,11 @@ private app source code, backend functions, backend code, credentials,
 environment files, internal notes, Flutter build output, or private business
 documents.
 
+The authenticated Ora app is a separate private deployment intended for
+`https://app.oracoach.app`. This public repository should only link to that app
+URL; it should not contain the app source, backend code, deployment secrets, or
+compiled app artifacts. See `ARCHITECTURE.md` for the split-domain architecture.
+
 ## Site shape
 
 - `/` - Ora marketing homepage copied from the main repo's public `web_seo/` bundle.
@@ -17,6 +22,8 @@ documents.
   `/reports/`, `/coach-console/`, `/ai-fitness-coach/`, `/biomechanics-lab/`,
   `/local-first-fitness-app/`, and `/mobile-check/`.
 - `/robots.txt` and `/sitemap.xml`.
+- App access links point to `https://app.oracoach.app`, which should be deployed
+  from the private app repo or another private web app repo.
 
 ## Build and package manager
 
@@ -31,7 +38,8 @@ The beta form is static: it opens a prefilled email to
 1. Open the repository on GitHub.
 2. Go to **Settings** -> **Pages**.
 3. Set **Source** to **Deploy from a branch**.
-4. Set the branch to `codex/static-website` and the folder to `/ (root)`.
+4. Set the branch to the current public website branch, currently
+   `codex/static-website`, and the folder to `/ (root)`.
 5. Confirm the custom domain is `oracoach.app`.
 6. Keep **Enforce HTTPS** enabled after GitHub provisions the certificate.
 
@@ -51,10 +59,29 @@ python3 -m http.server 8000
 
 Then open `http://localhost:8000/`.
 
+## App subdomain deployment
+
+Deploy the authenticated app from the private Ora app repo or a separate private
+web app repo. Do not deploy it from `ora-site`.
+
+For the current private Flutter web setup, the preferred app subdomain shape is
+`https://app.oracoach.app/`, built with a root base href such as:
+
+```bash
+flutter build web --base-href /
+```
+
+Configure `app.oracoach.app` in the private hosting provider, add it to Firebase
+Auth authorized domains if Firebase Auth is used, and add only the DNS records
+shown by that provider. For Firebase Hosting, the custom-domain wizard may
+require ownership TXT records and a subdomain CNAME. Use Firebase's displayed
+records as the source of truth.
+
 ## Verification checklist
 
 - `git diff --check`
 - Confirm `CNAME` contains exactly `oracoach.app`.
+- Confirm app-access links point to `https://app.oracoach.app`.
 - Confirm `/`, `/privacy/`, `/support/`, `/robots.txt`, `/sitemap.xml`, and SEO
   routes return HTTP 200 from a local static server.
 - Confirm no private app code, backend functions, credentials, environment files,
