@@ -38,8 +38,7 @@ The beta form is static: it opens a prefilled email to
 1. Open the repository on GitHub.
 2. Go to **Settings** -> **Pages**.
 3. Set **Source** to **Deploy from a branch**.
-4. Set the branch to the current public website branch, currently
-   `codex/static-website`, and the folder to `/ (root)`.
+4. Set the branch to `main` and the folder to `/ (root)`.
 5. Confirm the custom domain is `oracoach.app`.
 6. Keep **Enforce HTTPS** enabled after GitHub provisions the certificate.
 
