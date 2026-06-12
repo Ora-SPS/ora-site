@@ -14,41 +14,21 @@
   <meta property="og:description" content="A living training model for workouts, meals, recovery, progress, AI guidance, and optional coach review.">
   <meta property="og:url" content="https://oracoach.app/">
   <meta property="og:site_name" content="Ora">
-  <meta property="og:image" content="https://oracoach.app/assets/hero-aura-lineup.webp">
-  <meta property="og:image:alt" content="Original Ora aura lineup concept art">
+  <meta property="og:image" content="https://oracoach.app/assets/gen/og-card.png">
+  <meta property="og:image:alt" content="Ora — Grow your Aura. AI coaching for serious lifters.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Ora Coach | AI Workout Coaching for Serious Lifters">
   <meta name="twitter:description" content="Ora Coach turns training, nutrition, recovery, and progress into a living model for AI-assisted coaching and evidence-backed review.">
-  <meta name="twitter:image" content="https://oracoach.app/assets/hero-aura-lineup.webp">
+  <meta name="twitter:image" content="https://oracoach.app/assets/gen/og-card.png">
+  <meta name="theme-color" content="#08080b">
   <link rel="icon" type="image/png" href="/assets/ora-mark-192.png">
   <link rel="apple-touch-icon" href="/assets/ora-mark-192.png">
-  <script>
-    if (new URLSearchParams(window.location.search).get('lite') !== '1') {
-      document.write('<link rel="preload" href="/assets/hero-aura-lineup-mobile.webp" as="image" type="image/webp" media="(max-width: 640px)">');
-      document.write('<link rel="preload" href="/assets/hero-aura-lineup.webp" as="image" type="image/webp" media="(min-width: 641px)">');
-    }
-  </script>
-  <link rel="preload" href="/assets/site.css?v=2026-05-11-3" as="style">
-  <link rel="stylesheet" href="/assets/site.css?v=2026-05-11-3">
-  <style>
-    @media (max-width: 640px) {
-      body { margin: 0; background: #050913; color: #f3f7ff; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-      .top-nav { position: sticky; top: 8px; z-index: 12; display: flex; align-items: center; justify-content: space-between; width: calc(100% - 20px); margin: 8px auto 0; padding: 8px; border: 1px solid rgba(184, 199, 255, 0.13); border-radius: 16px; background: rgba(5, 9, 16, 0.86); }
-      .brand { display: inline-flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; font-weight: 900; }
-      .brand img { width: 38px; height: 38px; }
-      .brand span, .top-nav .nav-link:nth-of-type(2) { display: none; }
-      .navlinks { display: flex; justify-content: flex-end; gap: 6px; margin-left: auto; overflow-x: auto; }
-      .navlinks a { flex: 0 0 auto; color: inherit; text-decoration: none; font-size: 0.82rem; font-weight: 850; text-transform: uppercase; padding: 8px 9px; }
-      .navlinks a.primary { border-radius: 8px; background: #7bb7ff; color: #07111f; }
-      .aura-hero { position: relative; min-height: 620px; overflow: hidden; padding: 26px 18px 150px; background: #050913; }
-      .hero-copy { position: relative; z-index: 2; max-width: 570px; }
-      .aura-hero h1 { margin: 18px 0 14px; font-size: clamp(3.2rem, 17vw, 5.4rem); line-height: 0.86; letter-spacing: 0; }
-      .lede { margin: 0; color: rgba(243, 247, 255, 0.88); font-weight: 650; line-height: 1.52; }
-      .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
-      .btn { display: inline-flex; justify-content: center; min-height: 42px; border: 1px solid rgba(184, 199, 255, 0.14); border-radius: 8px; color: inherit; text-decoration: none; font-weight: 850; padding: 10px 14px; }
-      .btn.primary { border-color: transparent; background: #7bb7ff; color: #07111f; }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300..700&display=swap">
+  <link rel="preload" href="/assets/gen/iron-hero.webp" as="image" type="image/webp" media="(min-width: 768px)">
+  <link rel="preload" href="/assets/gen/iron-hero-mobile.webp" as="image" type="image/webp" media="(max-width: 767px)">
+  <link rel="stylesheet" href="/assets/aura.css?v=5">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -76,365 +56,420 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="wrap nav top-nav">
-      <a class="brand" href="/"><img src="/assets/ora-mark-transparent-192.png" alt="" width="38" height="38"><span>Ora</span></a>
-    <nav class="navlinks" aria-label="Primary">
-      <a class="nav-link" href="#home" aria-current="page">Home</a>
-      <a class="nav-link" href="#programs">Programs</a>
-      <a class="nav-link" href="#plans">Plans</a>
-      <a class="nav-link" href="/support/">Support</a>
-      <a class="primary" href="#waitlist">Join beta</a>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header class="nav" id="nav">
+    <a class="brand" href="/">
+      <img src="/assets/ora-mark-transparent-192.png" alt="" width="34" height="34">
+      <span>Ora</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#model">Model</a>
+      <a href="#loop">The loop</a>
+      <a href="#tracks">Tracks</a>
+      <a href="#plans">Plans</a>
+      <a href="/support/">Support</a>
     </nav>
+    <a class="btn btn-primary btn-small magnetic" href="#waitlist">Join the beta</a>
   </header>
 
   <main id="main">
-    <section class="hero home-hero aura-hero" id="home">
-      <div class="hero-copy">
-        <div class="eyebrow"><span class="dot" aria-hidden="true"></span> Private beta for serious self-improvement</div>
-        <h1>Grow your Aura.</h1>
-        <p class="lede">Ora turns workouts, meals, recovery, and progress into a living training model - then helps you act with AI guidance, science-backed evidence, and optional coach review.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#waitlist">Join beta</a>
-          <a class="btn" href="/support/">Beta support</a>
-          <a class="btn" href="#programs">See how Ora works</a>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <div class="hero-sky" aria-hidden="true">
+        <picture data-parallax="-0.12" class="hero-nebula">
+          <source srcset="/assets/gen/iron-hero-mobile.webp" media="(max-width: 767px)" type="image/webp">
+          <img src="/assets/gen/iron-hero.webp" alt="" width="2400" height="1500" fetchpriority="high">
+        </picture>
+        <img class="hero-contours" src="/assets/gen/aura-contours.webp" alt="" width="1100" height="1100" data-parallax="0.06" data-spin>
+        <img class="hero-lifter" src="/assets/gen/lifter.webp" alt="" width="1000" height="1000" data-parallax="0.16">
+        <img class="hero-dust" src="/assets/gen/dust.webp" alt="" width="1600" height="1000" data-parallax="0.3" loading="lazy">
+        <div class="hero-fade"></div>
+      </div>
+
+      <div class="hero-inner">
+        <p class="eyebrow rise" style="--d:.1s"><span class="dot" aria-hidden="true"></span>Private beta &middot; for serious self-improvement</p>
+        <h1 class="hero-title">
+          <span class="line"><span class="line-inner rise-line" style="--d:.25s">Grow</span></span>
+          <span class="line"><span class="line-inner rise-line" style="--d:.37s">your</span></span>
+          <span class="line line-aura"><span class="line-inner rise-line" style="--d:.49s"><em>Aura.</em></span></span>
+        </h1>
+        <div class="hero-low">
+          <p class="lede rise" style="--d:.65s">Ora turns workouts, meals, recovery, and progress into a living training model &mdash; then helps you act on it with AI guidance, science-backed evidence, and optional coach review.</p>
+          <div class="hero-actions rise" style="--d:.78s">
+            <a class="btn btn-primary magnetic" href="#waitlist">Join the beta</a>
+            <a class="btn btn-ghost magnetic" href="#model">See how it works</a>
+          </div>
         </div>
+      </div>
+
+      <div class="hero-foot rise" style="--d:1s">
         <div class="trust-strip" aria-label="Ora product focus">
-          <span>Training model</span>
-          <span>AI guidance</span>
-          <span>Science-backed evidence</span>
-          <span>Coach review</span>
+          <span>Training model</span><span>AI guidance</span><span>Evidence</span><span>Coach review</span>
+        </div>
+        <a class="scroll-cue" href="#manifesto" aria-label="Scroll to content"><span></span></a>
+      </div>
+    </section>
+
+    <!-- ============ TEXT MARQUEE ============ -->
+    <div class="word-marquee" aria-hidden="true">
+      <div class="word-track">
+        <span>Train <i>&middot;</i> Fuel <i>&middot;</i> Recover <i>&middot;</i> Prove <i>&middot;</i> Review <i>&middot;</i> </span><span>Train <i>&middot;</i> Fuel <i>&middot;</i> Recover <i>&middot;</i> Prove <i>&middot;</i> Review <i>&middot;</i> </span>
+      </div>
+    </div>
+
+    <!-- ============ MANIFESTO ============ -->
+    <section class="manifesto" id="manifesto" aria-label="Why Ora exists">
+      <p class="manifesto-text" data-words>Your training already tells a story. Most apps lose it in screenshots, scattered logs, and advice with no memory. Ora keeps every set, meal, and signal in one living model &mdash; so the next decision is never a guess.</p>
+    </section>
+
+    <!-- ============ THE LIVING MODEL ============ -->
+    <section class="model" id="model" aria-label="The living training model">
+      <img class="model-contours" src="/assets/gen/aura-contours.webp" alt="" width="1100" height="1100" data-parallax="0.15" data-spin loading="lazy" aria-hidden="true">
+      <div class="section-head" data-reveal>
+        <span class="kicker"><b>01</b> The living model</span>
+        <h2>One model.<br>Every signal that <em>matters.</em></h2>
+        <p>Four surfaces feed a single context. Each one makes the others smarter.</p>
+      </div>
+      <div class="model-grid">
+        <article class="model-card" data-reveal style="--d:.0s">
+          <span class="card-num">01</span>
+          <h3>Train</h3>
+          <p>Structured blocks, comparable sessions, effort targets, and recovery-aware progression &mdash; not novelty for its own sake.</p>
+          <a class="card-link" href="/workout-tracker/">Workout tracker</a>
+        </article>
+        <article class="model-card" data-reveal style="--d:.08s">
+          <span class="card-num">02</span>
+          <h3>Fuel</h3>
+          <p>Nutrition as coverage, not perfection. Estimates stay marked, sparse days stay visible, and food finally explains recovery.</p>
+          <a class="card-link" href="/nutrition-tracker/">Nutrition tracker</a>
+        </article>
+        <article class="model-card" data-reveal style="--d:.16s">
+          <span class="card-num">03</span>
+          <h3>Recover</h3>
+          <p>Pain, soreness, sleep, and readiness notes shape the plan before progression becomes automatic &mdash; without diagnosing injury.</p>
+          <a class="card-link" href="/reports/">Recovery in reports</a>
+        </article>
+        <article class="model-card" data-reveal style="--d:.24s">
+          <span class="card-num">04</span>
+          <h3>Prove</h3>
+          <p>Check-ins, photos, and body metrics become a progress timeline tied to the block that produced them.</p>
+          <a class="card-link" href="/progress-tracker/">Progress tracker</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ THE LOOP ============ -->
+    <section class="loop" id="loop" aria-label="How Ora works">
+      <div class="loop-rail">
+        <div class="loop-sticky">
+          <span class="kicker"><b>02</b> The loop</span>
+          <h2>Every change has a <em>reason</em> you can read.</h2>
+          <p>Ora is not a hype engine. Recommendations carry their receipts &mdash; the data used, the caveats, the missing signals &mdash; and a human coach can stay in the loop when judgment matters.</p>
+          <div class="loop-progress" aria-hidden="true"><span data-loop-fill></span></div>
         </div>
       </div>
-      <aside class="aura-visual" aria-hidden="true">
-        <div class="aura-image-card">
-          <picture>
-            <source srcset="/assets/hero-aura-lineup-mobile.webp" media="(max-width: 640px)" type="image/webp">
-            <img src="/assets/hero-aura-lineup.webp" alt="" width="1672" height="941">
-          </picture>
-          <div class="aura-caption">
-            <span>Original concept art</span>
-            <strong>Founding identity: train with a model that remembers context.</strong>
+      <ol class="loop-steps">
+        <li class="loop-step" data-step>
+          <span class="step-num">01</span>
+          <div><h3>Capture</h3><p>Log sessions, meals, recovery signals, and check-ins in seconds. Everything lands in one context instead of five apps.</p></div>
+        </li>
+        <li class="loop-step" data-step>
+          <span class="step-num">02</span>
+          <div><h3>Draft</h3><p>AI proposes the next move &mdash; anchored to your evidence, framed with conservative boundaries, never detached from your data.</p></div>
+        </li>
+        <li class="loop-step" data-step>
+          <span class="step-num">03</span>
+          <div><h3>Package</h3><p>The recommendation ships with an evidence packet: training load, nutrition coverage, progress context, and what's missing.</p></div>
+        </li>
+        <li class="loop-step" data-step>
+          <span class="step-num">04</span>
+          <div><h3>Review</h3><p>A coach can approve, challenge, or reframe the draft &mdash; with the same scoped evidence in front of them. No silent plan edits.</p></div>
+        </li>
+        <li class="loop-step" data-step>
+          <span class="step-num">05</span>
+          <div><h3>Decide</h3><p>The plan changes for a reason that stays attached to the block it affected. Six months later, you still know why.</p></div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ INSIDE THE APP ============ -->
+    <section class="app-peek" id="app" aria-label="Inside the Ora app">
+      <div class="section-head center" data-reveal>
+        <span class="kicker"><b>03</b> Inside the app</span>
+        <h2>The daily loop, <em>up close.</em></h2>
+        <p>Concept renders of the private beta &mdash; the session log, the AI draft with its receipts, and the block report. Real beta screenshots land here as the UI settles.</p>
+      </div>
+      <div class="phones">
+        <div class="phone" data-reveal style="--d:0s" data-parallax="0.06">
+          <div class="phone-screen">
+            <div class="ph-head"><span class="ph-kick">Today &middot; Block W3D2</span><strong>Pull day</strong></div>
+            <div class="ph-row"><div><b>Deadlift</b><small>Top set 3 @ RPE 8</small></div><span class="ph-chip">182.5 kg</span></div>
+            <div class="ph-row done"><div><b>Bent row</b><small>4 &times; 8 &middot; +2.5 kg</small></div><span class="ph-chip teal">done</span></div>
+            <div class="ph-row"><div><b>Lat pulldown</b><small>3 &times; 10&ndash;12</small></div><span class="ph-chip dim">next</span></div>
+            <div class="ph-row"><div><b>Hammer curl</b><small>3 &times; 12</small></div><span class="ph-chip dim">&mdash;</span></div>
+            <div class="ph-note">You noted left-hip tightness Monday &mdash; pulls capped at RPE 8 this week.</div>
           </div>
         </div>
-      </aside>
-    </section>
-
-    <section class="wrap mobile-layout mobile-beta-shortcut" aria-label="Mobile Ora beta shortcut">
-      <div>
-        <span class="section-kicker">Private beta</span>
-        <h2>Start with your next training block.</h2>
-        <p>Join the beta queue or contact support if you already have access.</p>
-      </div>
-      <div class="hero-actions">
-        <a class="btn primary" href="#waitlist">Join beta</a>
-        <a class="btn" href="/support/">Beta support</a>
-      </div>
-    </section>
-
-    <section class="landing-section goal-tracks" id="programs" aria-label="Ora founding goal tracks">
-      <span class="anchor-alias" id="goal-tracks" aria-hidden="true"></span>
-      <div class="section-intro center">
-        <span class="section-kicker">Founding goal tracks</span>
-        <h2>Start with the phase you are actually in.</h2>
-        <p>Illustrative journey paths, not testimonials. Ora is being built to adapt the plan, evidence, and coaching loop around the goal in front of you.</p>
-      </div>
-      <p class="track-disclaimer">Founding goal tracks - illustrative, not testimonials.</p>
-      <div class="marquee-shell desktop-layout">
-        <div class="marquee-track" data-marquee-track>
-          <div class="marquee-group" data-marquee-group>
-            <article class="track-card"><span>Strength Phase</span><strong>Build repeatable performance</strong><p>Keep loads, effort, and recovery visible before chasing novelty.</p></article>
-            <article class="track-card"><span>Lean Bulk</span><strong>Grow with coverage</strong><p>Pair progressive training with nutrition consistency and caveat-aware logs.</p></article>
-            <article class="track-card"><span>Cut / Recomposition</span><strong>Hold muscle, reduce guesswork</strong><p>Connect meals, training quality, and progress signals in one review loop.</p></article>
-            <article class="track-card"><span>Return From Break</span><strong>Rebuild rhythm</strong><p>Use conservative targets and simple next actions to restart without overcorrecting.</p></article>
-            <article class="track-card"><span>Coach-Guided Block</span><strong>Bring context to review</strong><p>Share scoped evidence so a coach can challenge or approve the next move.</p></article>
-            <article class="track-card"><span>Injury-Conscious Training</span><strong>Respect pain signals</strong><p>Adapt around pain and recovery warnings without diagnosing or treating injury.</p></article>
-            <article class="track-card"><span>First 90 Days</span><strong>Build the habit loop</strong><p>Turn early logs into a clean starting model for training, food, and recovery.</p></article>
-            <article class="track-card"><span>Powerbuilding</span><strong>Balance strength and size</strong><p>Keep heavy work, accessories, and fatigue cost visible inside one block.</p></article>
-            <article class="track-card"><span>Fat Loss With Performance</span><strong>Cut without losing the thread</strong><p>Watch training quality, nutrition coverage, and progress together.</p></article>
-            <article class="track-card"><span>Meal Consistency</span><strong>Make nutrition repeatable</strong><p>Use coverage, defaults, and missing-data flags instead of perfection pressure.</p></article>
-            <article class="track-card"><span>Busy Schedule Block</span><strong>Fit the plan to reality</strong><p>Protect minimum effective sessions when time and energy are constrained.</p></article>
-            <article class="track-card"><span>Recovery Rebuild</span><strong>Earn the next push</strong><p>Use fatigue, soreness, sleep, and pain signals before forcing progression.</p></article>
+        <div class="phone phone-mid" data-reveal style="--d:.1s">
+          <div class="phone-screen">
+            <div class="ph-head"><span class="ph-kick">AI draft &middot; awaiting review</span><strong>Hold the top set</strong></div>
+            <p class="ph-body">Keep 182.5 kg for one more week. Your last top set came in at RPE 9 against an 8 target, and this block already added 6%.</p>
+            <div class="ph-evidence">
+              <span>Evidence</span>
+              <div class="ph-tags"><i>Load +6% / 3 wk</i><i>RPE 9 vs 8 target</i><i>2 diet days missing</i><i>Hip note W3D1</i></div>
+            </div>
+            <div class="ph-actions"><span class="ph-btn primary">Accept</span><span class="ph-btn">Ask coach</span></div>
+            <div class="ph-note">Drafts show their work. Nothing changes silently.</div>
+          </div>
+        </div>
+        <div class="phone" data-reveal style="--d:.2s" data-parallax="-0.06">
+          <div class="phone-screen">
+            <div class="ph-head"><span class="ph-kick">Report &middot; 30 days</span><strong>Block trend</strong></div>
+            <img class="ph-chart" src="/assets/gen/load-curve.webp" alt="Stylized training load trend chart" width="1400" height="520" loading="lazy">
+            <div class="ph-stat-row">
+              <div><span>Quality</span><b>82</b></div>
+              <div><span>Adherence</span><b>91%</b></div>
+              <div><span>Protein</span><b>0.9 g/lb</b></div>
+            </div>
+            <img class="ph-wave" src="/assets/gen/waveform.webp" alt="Stylized recovery waveform" width="1600" height="240" loading="lazy">
+            <div class="ph-note">Deload weeks marked. Estimates stay flagged.</div>
           </div>
         </div>
       </div>
-      <div class="mobile-layout mobile-track-list" aria-label="Mobile Ora founding goal tracks">
-        <article class="track-card"><span>Strength Phase</span><strong>Build repeatable performance</strong><p>Keep loads, effort, and recovery visible before chasing novelty.</p></article>
-        <article class="track-card"><span>Lean Bulk</span><strong>Grow with coverage</strong><p>Pair progressive training with nutrition consistency and caveat-aware logs.</p></article>
-        <article class="track-card"><span>Cut / Recomposition</span><strong>Hold muscle, reduce guesswork</strong><p>Connect meals, training quality, and progress signals in one review loop.</p></article>
-        <article class="track-card"><span>Return From Break</span><strong>Rebuild rhythm</strong><p>Use conservative targets and simple next actions to restart without overcorrecting.</p></article>
-        <article class="track-card"><span>Coach-Guided Block</span><strong>Bring context to review</strong><p>Share scoped evidence so a coach can challenge or approve the next move.</p></article>
-        <article class="track-card"><span>Injury-Conscious Training</span><strong>Respect pain signals</strong><p>Adapt around pain and recovery warnings without diagnosing or treating injury.</p></article>
-        <article class="track-card"><span>First 90 Days</span><strong>Build the habit loop</strong><p>Turn early logs into a clean starting model for training, food, and recovery.</p></article>
-        <article class="track-card"><span>Powerbuilding</span><strong>Balance strength and size</strong><p>Keep heavy work, accessories, and fatigue cost visible inside one block.</p></article>
-        <article class="track-card"><span>Fat Loss With Performance</span><strong>Cut without losing the thread</strong><p>Watch training quality, nutrition coverage, and progress together.</p></article>
-        <article class="track-card"><span>Meal Consistency</span><strong>Make nutrition repeatable</strong><p>Use coverage, defaults, and missing-data flags instead of perfection pressure.</p></article>
-        <article class="track-card"><span>Busy Schedule Block</span><strong>Fit the plan to reality</strong><p>Protect minimum effective sessions when time and energy are constrained.</p></article>
-        <article class="track-card"><span>Recovery Rebuild</span><strong>Earn the next push</strong><p>Use fatigue, soreness, sleep, and pain signals before forcing progression.</p></article>
+    </section>
+
+    <!-- ============ EVIDENCE PACKET ============ -->
+    <section class="packet" id="packet" aria-label="Ora evidence packet">
+      <img class="packet-ribbon" src="/assets/gen/waveform.webp" alt="" width="1600" height="240" data-parallax="0.1" loading="lazy" aria-hidden="true">
+      <div class="section-head center" data-reveal>
+        <span class="kicker"><b>04</b> Evidence packet</span>
+        <h2>Reports that make coaching <em>decisions</em> easier.</h2>
+        <p>After the daily loop, Ora packages the context behind a decision: what was captured, what is missing, what AI drafted, and what a human should judge.</p>
+      </div>
+      <div class="packet-stage" data-reveal>
+        <div class="packet-card" data-tilt>
+          <div class="packet-head">
+            <strong>Evidence packet</strong>
+            <span class="packet-badge">Coach-ready</span>
+          </div>
+          <div class="packet-scores">
+            <div><span>Quality</span><strong data-count="82">0</strong><small>Missing two diet days</small></div>
+            <div><span>Window</span><strong>30D</strong><small>Training block view</small></div>
+            <div><span>Review</span><strong>Queued</strong><small>Coach optional</small></div>
+          </div>
+          <div class="packet-grid">
+            <div><span>Data quality</span><strong>Warnings and sparse days stay visible.</strong></div>
+            <div><span>Training block</span><strong>Load, adherence, substitutions, effort.</strong></div>
+            <div><span>Nutrition coverage</span><strong>Macros, meal rhythm, estimates.</strong></div>
+            <div><span>Progress context</span><strong>Check-ins, uploads, body metrics.</strong></div>
+            <div><span>Coach questions</span><strong>What needs judgment before the plan changes.</strong></div>
+            <div><span>Export / share</span><strong>Scoped packet for trusted review.</strong></div>
+          </div>
+          <div class="packet-foot">Reports support the promise: the next decision gets clearer, not noisier.</div>
+        </div>
+      </div>
+      <div class="packet-actions" data-reveal>
+        <a class="btn btn-ghost magnetic" href="/reports/">Explore reports</a>
+        <a class="btn btn-ghost magnetic" href="/coach-console/">Coach console</a>
       </div>
     </section>
 
-    <section class="wrap landing-section pain-points" aria-label="Problems Ora is designed around">
-      <div class="section-intro">
-        <span class="section-kicker">Founding pain points</span>
-        <h2>Problems Ora is designed around.</h2>
-        <p>No fake reviews. These are the recurring training frustrations the product is being built to solve.</p>
+    <!-- ============ GOAL TRACKS ============ -->
+    <section class="tracks" id="tracks" aria-label="Founding goal tracks">
+      <div class="section-head center" data-reveal>
+        <span class="kicker"><b>05</b> Founding goal tracks</span>
+        <h2>Start with the phase you're <em>actually</em> in.</h2>
+        <p>Illustrative journey paths, not testimonials. Ora adapts the plan, evidence, and coaching loop around the goal in front of you.</p>
       </div>
-      <div class="pain-grid">
-        <article><h3>You forget why the plan changed.</h3><p>Ora keeps goals, constraints, sessions, meals, and coach notes tied to the block they affected.</p></article>
-        <article><h3>Your data lives in separate places.</h3><p>Training logs, food entries, recovery, photos, and notes become one living context instead of scattered screenshots.</p></article>
-        <article><h3>AI advice can feel detached.</h3><p>Ora keeps recommendations anchored to evidence, missing data, and conservative boundaries.</p></article>
-        <article><h3>Coach feedback needs context.</h3><p>Scoped report packets let a coach review the same signal without asking you to rebuild the story manually.</p></article>
+      <div class="track-marquee" data-marquee>
+        <div class="track-row">
+          <article class="track-card"><span>Strength Phase</span><strong>Build repeatable performance</strong><p>Keep loads, effort, and recovery visible before chasing novelty.</p></article>
+          <article class="track-card"><span>Lean Bulk</span><strong>Grow with coverage</strong><p>Pair progressive training with nutrition consistency and caveat-aware logs.</p></article>
+          <article class="track-card"><span>Cut / Recomp</span><strong>Hold muscle, reduce guesswork</strong><p>Connect meals, training quality, and progress in one review loop.</p></article>
+          <article class="track-card"><span>Return From Break</span><strong>Rebuild rhythm</strong><p>Conservative targets and simple next actions to restart without overcorrecting.</p></article>
+          <article class="track-card"><span>Coach-Guided Block</span><strong>Bring context to review</strong><p>Share scoped evidence so a coach can challenge or approve the next move.</p></article>
+          <article class="track-card"><span>Injury-Conscious</span><strong>Respect pain signals</strong><p>Adapt around pain and recovery warnings without diagnosing injury.</p></article>
+        </div>
       </div>
+      <div class="track-marquee reverse" data-marquee>
+        <div class="track-row">
+          <article class="track-card"><span>First 90 Days</span><strong>Build the habit loop</strong><p>Turn early logs into a clean starting model for training, food, and recovery.</p></article>
+          <article class="track-card"><span>Powerbuilding</span><strong>Balance strength and size</strong><p>Keep heavy work, accessories, and fatigue cost visible inside one block.</p></article>
+          <article class="track-card"><span>Fat Loss + Performance</span><strong>Cut without losing the thread</strong><p>Watch training quality, nutrition coverage, and progress together.</p></article>
+          <article class="track-card"><span>Meal Consistency</span><strong>Make nutrition repeatable</strong><p>Coverage, defaults, and missing-data flags instead of perfection pressure.</p></article>
+          <article class="track-card"><span>Busy Schedule</span><strong>Fit the plan to reality</strong><p>Protect minimum effective sessions when time and energy are constrained.</p></article>
+          <article class="track-card"><span>Recovery Rebuild</span><strong>Earn the next push</strong><p>Use fatigue, soreness, sleep, and pain signals before forcing progression.</p></article>
+        </div>
+      </div>
+      <p class="track-note" data-reveal>Founding goal tracks &mdash; illustrative, not testimonials. Ora never shows fake transformations or star ratings.</p>
     </section>
 
-    <section class="wrap landing-section founding-stories" aria-label="Founding transformation stories">
-      <div class="section-intro center">
-        <span class="section-kicker">Reviews and transformations</span>
-        <h2>Founding stories before verified reviews.</h2>
-        <p>These are illustrative transformation arcs, not testimonials. Real beta stories should show the starting point, timeframe, evidence, user reflection, and coach review status.</p>
+    <!-- ============ PLANS ============ -->
+    <section class="plans" id="plans" aria-label="Ora plan mockups">
+      <div class="section-head center" data-reveal>
+        <span class="kicker"><b>06</b> Plans</span>
+        <h2>Two levels of <em>commitment.</em></h2>
+        <p>Proposed founding prices &mdash; billing is not live today. Coach labor stays separate; Ora provides the review infrastructure.</p>
       </div>
-      <div class="story-grid">
-        <article class="story-card">
-          <span>Illustrative arc</span>
-          <h3>From inconsistent logs to a repeatable block.</h3>
-          <p>A user starts with scattered workouts and turns them into comparable sessions, clear progression, and visible recovery context.</p>
-          <small>Future proof: adherence, training volume, check-ins, and plan-change notes.</small>
-        </article>
-        <article class="story-card featured">
-          <span>Illustrative arc</span>
-          <h3>From random AI advice to coach-reviewable evidence.</h3>
-          <p>Instead of accepting a black-box recommendation, the user sees what Ora used, what is missing, and what a human coach should judge.</p>
-          <small>Future proof: evidence packet, AI draft, coach comment, and final decision.</small>
-        </article>
-        <article class="story-card">
-          <span>Illustrative arc</span>
-          <h3>From scattered meals to nutrition coverage.</h3>
-          <p>Meals become useful context for physique and performance decisions without pretending estimates are perfect.</p>
-          <small>Future proof: protein coverage, meal rhythm, confidence flags, and sparse days.</small>
-        </article>
-      </div>
-      <p class="verification-note">Verified beta reviews coming soon. Ora should never display fake transformations, star ratings, or before/after claims.</p>
-    </section>
-
-    <section class="wrap landing-section science-band" id="ai-coach" aria-label="Ora science and coaching approach">
-      <div class="section-intro center">
-        <span class="section-kicker">Why Ora is different</span>
-        <h2>Science-backed. AI-assisted. Coach-reviewable.</h2>
-        <p>Ora is not a hype engine. It is a training context system built around practical evidence, conservative reasoning, and visible human review when it matters.</p>
-      </div>
-      <div class="science-grid">
-        <article><span>Training science</span><h3>Programs should be repeatable.</h3><p>Ora favors structured blocks, comparable sessions, effort targets, and recovery-aware adjustments.</p></article>
-        <article><span>Nutrition coverage</span><h3>Food data needs confidence.</h3><p>Meals can be useful without pretending every estimate is perfect or every sparse day is meaningful.</p></article>
-        <article><span>AI reasoning layer</span><h3>Drafts should show their work.</h3><p>AI guidance is framed around evidence, caveats, missing signals, and next actions.</p></article>
-        <article><span>Human review</span><h3>Judgment stays visible.</h3><p>Coaches can approve, challenge, or reframe a recommendation without silent plan edits.</p></article>
-        <article><span>Evidence packet</span><h3>The context travels with the decision.</h3><p>Reports collect the training, nutrition, progress, and recovery signals behind a coaching read.</p></article>
-      </div>
-    </section>
-
-    <section class="wrap landing-section personalization" id="personalization" aria-label="Ora personalization surfaces">
-      <div class="section-intro">
-        <span class="section-kicker">Personalization</span>
-        <h2>Your plan should know more than your last workout.</h2>
-        <p>Ora is designed to connect the training block, nutrition behavior, recovery signal, and progress context behind each recommendation.</p>
-      </div>
-      <div class="personal-grid">
-        <article class="personal-card"><span>01</span><h3>Personal programs</h3><p>Program drafts start from goals, experience, frequency, equipment, pain/recovery warnings, and real training signal.</p></article>
-        <article class="personal-card"><span>02</span><h3>Guided content</h3><p>Technique and learning content can sit near the training moment instead of becoming another disconnected library.</p></article>
-        <article class="personal-card"><span>03</span><h3>Monitoring</h3><p>Ora watches adherence, load, nutrition coverage, progress entries, and recovery context without burying users in dashboards.</p></article>
-        <article class="personal-card featured"><span>04</span><h3>Living training model</h3><p>The long-term direction is a digital twin of your training context: what changed, why it changed, and what should happen next.</p></article>
-      </div>
-    </section>
-
-    <section class="wrap landing-section guided-content" aria-label="Ora guided content">
-      <div class="section-intro center">
-        <span class="section-kicker">Guided content</span>
-        <h2>Less wandering. More directed practice.</h2>
-        <p>Ora should help users understand the next training move, the technique behind it, and the evidence that makes it worth doing.</p>
-      </div>
-      <div class="guided-grid">
-        <article><b>Technique</b><h3>Learn before the lift.</h3><p>Exercise lessons and cues can be routed into the program days where they matter.</p></article>
-        <article><b>Nutrition</b><h3>Coverage, not perfection.</h3><p>Food logs can explain recovery and physique direction while still marking estimates and sparse days clearly.</p></article>
-        <article><b>Recovery</b><h3>Signals before stress.</h3><p>Pain, soreness, sleep, and readiness should shape decisions before progression becomes automatic.</p></article>
-      </div>
-    </section>
-
-    <section class="wrap landing-section community" aria-label="Ora social and community concepts">
-      <div class="section-intro center">
-        <span class="section-kicker">Social layer</span>
-        <h2>Community without losing privacy or seriousness.</h2>
-        <p>Ora can become a place where training context helps groups, coaches, and teams improve together without turning personal data into public theater.</p>
-      </div>
-      <div class="community-grid">
-        <article>
-          <b>Pods</b>
-          <h3>Small accountable groups.</h3>
-          <p>Share selected goals, check-ins, and block momentum with people who are training seriously.</p>
-        </article>
-        <article>
-          <b>Challenges</b>
-          <h3>Metrics that fit the goal.</h3>
-          <p>Track consistency, volume, protein coverage, or recovery habits instead of shallow leaderboards.</p>
-        </article>
-        <article>
-          <b>Log feed</b>
-          <h3>Progress with context.</h3>
-          <p>Let users share curated training signals while keeping private notes and sensitive data scoped.</p>
-        </article>
-        <article>
-          <b>Coach/team hubs</b>
-          <h3>Review at group scale.</h3>
-          <p>Coaches can eventually monitor rosters, report queues, and adherence without losing the human loop.</p>
-        </article>
-        <article>
-          <b>Privacy</b>
-          <h3>Controls by default.</h3>
-          <p>Community should be opt-in, scoped, and easy to revoke as the product expands.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="wrap landing-section report-console-lower" id="app" aria-label="Ora reports and coach console">
-      <span class="anchor-alias" id="coach-review" aria-hidden="true"></span>
-      <div class="showcase-copy">
-        <span class="section-kicker">Reports and coach console</span>
-        <h2>Reports that make coaching decisions easier.</h2>
-        <p>After the daily training loop, Ora packages the context behind a decision: what was captured, what is missing, what AI drafted, and what a human coach should review.</p>
-        <div class="review-flow" aria-label="Ora review lifecycle">
-          <span>Capture logs</span>
-          <span>AI draft</span>
-          <span>Evidence packet</span>
-          <span>Coach review</span>
-          <span>Decision</span>
-        </div>
-        <div class="hero-actions">
-          <a class="btn" href="/reports/">Explore reports</a>
-          <a class="btn" href="/support/">Beta support</a>
-        </div>
-      </div>
-      <div class="report-surface" aria-label="Ora evidence packet concept">
-        <div class="screen-header"><strong>Evidence packet</strong><span>Coach-ready context</span></div>
-        <div class="report-score-row">
-          <div><span>Quality</span><strong>82</strong><small>Missing two diet days</small></div>
-          <div><span>Window</span><strong>30D</strong><small>Training block view</small></div>
-          <div><span>Review</span><strong>Queued</strong><small>Coach optional</small></div>
-        </div>
-        <div class="report-surface-grid">
-          <div><span>Data quality</span><strong>Warnings and sparse days stay visible.</strong></div>
-          <div><span>Training block</span><strong>Load, adherence, substitutions, effort.</strong></div>
-          <div><span>Nutrition coverage</span><strong>Macros, meal rhythm, estimates.</strong></div>
-          <div><span>Progress context</span><strong>Check-ins, uploads, body metrics.</strong></div>
-          <div><span>Coach questions</span><strong>What needs judgment before changing the plan.</strong></div>
-          <div><span>Export / share</span><strong>Scoped packet for trusted review.</strong></div>
-        </div>
-        <div class="screen-note">Reports support the promise. They should make the next decision clearer, not turn the whole brand into an admin console.</div>
-      </div>
-    </section>
-
-    <section class="wrap landing-section pricing-preview plans-section" id="plans" aria-label="Ora plan mockups">
-      <span class="anchor-alias" id="pricing" aria-hidden="true"></span>
-      <div class="section-intro center">
-        <span class="section-kicker">Mock plan architecture</span>
-        <h2>Plans for different levels of commitment.</h2>
-        <p>Proposed founding prices only. Ora can support a focused user plan and a higher-touch super-user plan without implying that paid billing is live today.</p>
-      </div>
-      <div class="pricing-matrix desktop-layout">
-        <div class="pricing-row pricing-head">
-          <div>Plan</div>
-          <div>1 month</div>
-          <div>3 months</div>
-          <div>Yearly</div>
-        </div>
-        <div class="pricing-row">
-          <div><span>User</span><strong>Ora User</strong><small>Core training model, logs, programs, and basic AI guidance.</small></div>
-          <div><strong>$14.99</strong><small>$14.99/mo</small></div>
-          <div><strong>$39.99</strong><small>about $13.33/mo</small></div>
-          <div class="best-value"><strong>$119.99</strong><small>about $9.99/mo</small></div>
-        </div>
-        <div class="pricing-row featured">
-          <div><span>Super-user</span><strong>Ora Super-user</strong><small>Advanced AI reasoning, report packets, exports, and digital twin previews.</small></div>
-          <div><strong>$29.99</strong><small>$29.99/mo</small></div>
-          <div><strong>$79.99</strong><small>about $26.66/mo</small></div>
-          <div class="best-value"><strong>$239.99</strong><small>about $19.99/mo</small></div>
-        </div>
-        <div class="plan-comparison">
-          <article><b>Ora User</b><p>Training, nutrition, recovery, and progress logging. Program generation. Basic AI guidance. Progress timeline and check-in context.</p></article>
-          <article><b>Ora Super-user</b><p>Everything in User, plus advanced AI coach reasoning, coach-shareable evidence packets, digital twin previews, richer exports, and priority beta access.</p></article>
-          <article><b>Coach-in-the-middle</b><p>Coach labor is separate. Ora provides the AI-assisted evidence, scoped sharing, approvals, comments, and review infrastructure.</p></article>
-        </div>
-      </div>
-      <div class="mobile-layout mobile-plan-stack" aria-label="Mobile Ora plan mockups">
-        <article class="mobile-plan-card">
-          <span>User</span>
+      <div class="plan-grid">
+        <article class="plan-card" data-reveal style="--d:0s">
+          <span class="plan-tag">User</span>
           <h3>Ora User</h3>
-          <strong>$14.99/mo</strong>
-          <p>3 months $39.99. Yearly $119.99, about $9.99/mo.</p>
-          <ul><li>Logging and goal tracks</li><li>Program generation</li><li>Basic AI guidance</li><li>Progress timeline</li></ul>
+          <div class="plan-price"><strong>$14.99</strong><span>/mo</span></div>
+          <p class="plan-alt">3 months $39.99 &middot; yearly $119.99 (&approx;$9.99/mo)</p>
+          <ul>
+            <li>Training, nutrition, recovery &amp; progress logging</li>
+            <li>Program generation from your constraints</li>
+            <li>Basic AI guidance</li>
+            <li>Progress timeline and check-in context</li>
+          </ul>
+          <a class="btn btn-ghost magnetic" href="#waitlist">Join the beta</a>
         </article>
-        <article class="mobile-plan-card featured">
-          <span>Super-user</span>
+        <article class="plan-card featured" data-reveal style="--d:.1s">
+          <span class="plan-tag">Super-user</span>
           <h3>Ora Super-user</h3>
-          <strong>$29.99/mo</strong>
-          <p>3 months $79.99. Yearly $239.99, about $19.99/mo.</p>
-          <ul><li>Advanced AI coach reasoning</li><li>Shareable evidence packets</li><li>Digital twin previews</li><li>Priority beta access</li></ul>
+          <div class="plan-price"><strong>$29.99</strong><span>/mo</span></div>
+          <p class="plan-alt">3 months $79.99 &middot; yearly $239.99 (&approx;$19.99/mo)</p>
+          <ul>
+            <li>Everything in User</li>
+            <li>AI analysis across your full training history</li>
+            <li>Coach-shareable evidence packets</li>
+            <li>Richer exports &amp; report history</li>
+            <li>Priority beta access</li>
+          </ul>
+          <a class="btn btn-primary magnetic" href="#waitlist">Join the beta</a>
         </article>
-        <article class="mobile-plan-card">
-          <span>Coach review</span>
-          <h3>Human review add-on</h3>
-          <p>Coach labor is separate. Ora provides the review system and shared evidence layer.</p>
+        <article class="plan-card slim" data-reveal style="--d:.2s">
+          <span class="plan-tag">Add-on</span>
+          <h3>Human coach review</h3>
+          <p>Coach labor is separate. Ora handles the packets, queues, scoped sharing, comments, and approvals that make review fast.</p>
+          <a class="card-link" href="/coach-console/">See the coach console</a>
         </article>
       </div>
     </section>
 
-    <section class="wrap landing-section store-preview" id="store" aria-label="Future Ora Store preview">
-      <div class="section-intro center">
-        <span class="section-kicker">Future Ora Store</span>
-        <h2>A future layer for tools that support the plan.</h2>
-        <p>Not live commerce. Ora can eventually connect evidence-backed recommendations to products, templates, and services without turning the app into a noisy marketplace.</p>
+    <!-- ============ ROADMAP / VISION ============ -->
+    <section class="roadmap" id="roadmap" aria-label="Ora long-term vision">
+      <div class="section-head center" data-reveal>
+        <span class="kicker"><b>07</b> Where this is going</span>
+        <h2>The dream features, labeled <em>honestly.</em></h2>
+        <p>None of this is in the beta. It's the direction the living model makes possible &mdash; published here so you can hold us to it.</p>
       </div>
-      <div class="store-grid">
-        <article><b>Nutrition tools</b><h3>Supplements and food support.</h3><p>Future recommendations can stay tied to user goals, preferences, and evidence instead of generic product pushes.</p></article>
-        <article><b>Training equipment</b><h3>Gear that fits constraints.</h3><p>Equipment suggestions could connect to program needs, available space, and user experience level.</p></article>
-        <article><b>Program templates</b><h3>Structured starting points.</h3><p>Templates can act as coach-reviewed foundations that Ora adapts around logs and recovery signals.</p></article>
-        <article><b>Coach services</b><h3>Review credits and packages.</h3><p>Coach labor can remain separate while Ora handles packets, queues, comments, and approvals.</p></article>
+      <div class="roadmap-grid">
+        <article class="roadmap-card" data-reveal style="--d:0s">
+          <span class="vision-tag">Vision</span>
+          <h3>A biomechanic model of you</h3>
+          <p>A per-person digital twin: your leverages, your injury history, your response to volume &mdash; so programs fit your body, not the average lifter's. <a href="/biomechanics-lab/">The biomechanics lab idea</a>.</p>
+        </article>
+        <article class="roadmap-card" data-reveal style="--d:.08s">
+          <span class="vision-tag">Vision</span>
+          <h3>Movement &amp; bar-speed analysis</h3>
+          <p>Velocity and technique signals from video, feeding the same evidence loop &mdash; flagged caveats included, hype excluded.</p>
+        </article>
+        <article class="roadmap-card" data-reveal style="--d:.16s">
+          <span class="vision-tag">Vision</span>
+          <h3>Tools that support the plan</h3>
+          <p>Templates, equipment, and coach services connected to evidence-backed recommendations &mdash; without turning the app into a marketplace.</p>
+        </article>
       </div>
     </section>
 
-    <section class="wrap landing-section faq" aria-label="Ora frequently asked questions">
-      <h2>Questions before joining.</h2>
-      <div class="faq-grid">
-        <article><h3>Is Ora trying to replace coaches?</h3><p>No. Ora can support flat AI guidance, but the product is being shaped so human coach review remains visible when decisions need judgment.</p></article>
-        <article><h3>Are the goal tracks real outcomes?</h3><p>No. They are founding goal tracks and illustrative journeys until real beta outcomes, testimonials, and results exist.</p></article>
-        <article><h3>Is injury-conscious training medical advice?</h3><p>No. Ora can help adapt around pain and recovery signals, but it does not diagnose, treat, or replace qualified medical care.</p></article>
-        <article><h3>Can I try the app now?</h3><p>Current testers can contact support for access help. New users can join the private beta waitlist.</p></article>
+    <!-- ============ FAQ ============ -->
+    <section class="faq" id="faq" aria-label="Ora frequently asked questions">
+      <div class="section-head" data-reveal>
+        <span class="kicker"><b>08</b> FAQ</span>
+        <h2>Questions before <em>joining.</em></h2>
+      </div>
+      <div class="faq-list" data-reveal>
+        <details>
+          <summary>Is Ora trying to replace coaches?<span class="faq-x" aria-hidden="true"></span></summary>
+          <p>No. Ora can run flat AI guidance, but the product is shaped so human coach review stays visible when decisions need judgment.</p>
+        </details>
+        <details>
+          <summary>Are the goal tracks real outcomes?<span class="faq-x" aria-hidden="true"></span></summary>
+          <p>No. They are founding goal tracks and illustrative journeys until real beta outcomes, testimonials, and results exist.</p>
+        </details>
+        <details>
+          <summary>Is injury-conscious training medical advice?<span class="faq-x" aria-hidden="true"></span></summary>
+          <p>No. Ora helps adapt around pain and recovery signals, but it does not diagnose, treat, or replace qualified medical care.</p>
+        </details>
+        <details>
+          <summary>Can I try the app now?<span class="faq-x" aria-hidden="true"></span></summary>
+          <p>Current testers can contact <a href="/support/">support</a> for access help. New users can join the private beta waitlist below.</p>
+        </details>
       </div>
     </section>
 
-    <section class="wrap final-cta beta-cta" id="waitlist" aria-label="Join the Ora waitlist">
-      <div>
-        <span>Private beta</span>
-        <h2>Start building the model behind your next block.</h2>
-        <p>Join the beta queue. Current testers can contact support for access help.</p>
+    <!-- ============ WAITLIST ============ -->
+    <section class="cta" id="waitlist" aria-label="Join the Ora waitlist">
+      <div class="cta-sky" aria-hidden="true">
+        <img class="cta-nebula" src="/assets/gen/iron-hero.webp" alt="" width="2400" height="1500" loading="lazy">
+        <img class="cta-dust" src="/assets/gen/dust.webp" alt="" width="1600" height="1000" data-parallax="0.25" loading="lazy">
       </div>
-      <div class="waitlist-card compact">
-        <div class="waitlist-head"><strong>Beta access queue</strong><span>Email only. No spam.</span></div>
-        <form class="waitlist-form" id="waitlist-form" novalidate>
-          <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="you@example.com"></div>
-          <fieldset class="goal-field"><legend>What should Ora help with first?</legend><label><input type="radio" name="primary_goal" value="training"> Training</label><label><input type="radio" name="primary_goal" value="nutrition"> Nutrition</label><label><input type="radio" name="primary_goal" value="coach"> Coach</label><label><input type="radio" name="primary_goal" value="all-in-one"> All-in-one</label></fieldset>
-          <div class="hp" aria-hidden="true"><label for="company">Company</label><input id="company" name="company" type="text" tabindex="-1" autocomplete="off"></div>
-          <button class="primary" id="waitlist-submit" type="submit">Join beta</button>
-        </form>
-        <div class="form-status" id="waitlist-status" role="status" aria-live="polite">Choose the first surface you want sharpened. If the email window does not open, email support@oracoach.app.</div>
+      <div class="cta-inner">
+        <div class="cta-copy" data-reveal>
+          <span class="kicker"><b>09</b> Private beta</span>
+          <h2>Start building the model behind your <em>next block.</em></h2>
+          <p>Join the beta queue. Current testers can contact support for access help. Email only &mdash; no spam.</p>
+        </div>
+        <div class="waitlist-card" data-reveal style="--d:.1s">
+          <form class="waitlist-form" id="waitlist-form" novalidate>
+            <div class="field">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="you@example.com">
+            </div>
+            <fieldset class="goal-field">
+              <legend>What should Ora help with first?</legend>
+              <label><input type="radio" name="primary_goal" value="training"><span>Training</span></label>
+              <label><input type="radio" name="primary_goal" value="nutrition"><span>Nutrition</span></label>
+              <label><input type="radio" name="primary_goal" value="coach"><span>Coach</span></label>
+              <label><input type="radio" name="primary_goal" value="all-in-one"><span>All-in-one</span></label>
+            </fieldset>
+            <div class="hp" aria-hidden="true"><label for="company">Company</label><input id="company" name="company" type="text" tabindex="-1" autocomplete="off"></div>
+            <button class="btn btn-primary btn-block magnetic" id="waitlist-submit" type="submit">Join the beta</button>
+          </form>
+          <div class="form-status" id="waitlist-status" role="status" aria-live="polite">If the email window does not open, email support@oracoach.app.</div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="wrap">
-    <p>Ora is built for lifters who want training, nutrition, progress reports, and coach review in one accountable system.</p>
-    <nav aria-label="Footer"><a href="/workout-tracker/">Workout tracker</a><a href="/nutrition-tracker/">Nutrition tracker</a><a href="/progress-tracker/">Progress tracker</a><a href="/biomechanics-lab/">Biomechanics lab</a><a href="/reports/">Reports</a><a href="/coach-console/">Coach console</a><a href="/ai-fitness-coach/">AI fitness coach</a><a href="/local-first-fitness-app/">Local-first app</a><a href="/mobile-check/">Mobile check</a><a href="/privacy/">Privacy</a><a href="/support/">Support</a></nav>
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="/"><img src="/assets/ora-mark-transparent-192.png" alt="" width="30" height="30"><span>Ora</span></a>
+        <p>Built for lifters who want training, nutrition, progress, and coach review in one accountable system.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <div>
+          <b>Product</b>
+          <a href="/workout-tracker/">Workout tracker</a>
+          <a href="/nutrition-tracker/">Nutrition tracker</a>
+          <a href="/progress-tracker/">Progress tracker</a>
+        </div>
+        <div>
+          <b>Coaching</b>
+          <a href="/reports/">Reports</a>
+          <a href="/coach-console/">Coach console</a>
+          <a href="/ai-fitness-coach/">AI fitness coach</a>
+        </div>
+        <div>
+          <b>Company</b>
+          <a href="/biomechanics-lab/">Biomechanics lab (vision)</a>
+          <a href="/local-first-fitness-app/">Local-first app</a>
+          <a href="/mobile-check/">Mobile check</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/support/">Support</a>
+        </div>
+      </nav>
+    </div>
+    <p class="footer-fine">&copy; 2026 Ora &middot; oracoach.app</p>
   </footer>
 
-  <script src="/assets/ambient-background.js?v=2026-05-11-3" defer></script>
-  <script src="/assets/marquee.js?v=2026-05-11-3" defer></script>
+  <script src="/assets/aura.js?v=1" defer></script>
   <script src="/assets/waitlist.js?v=2026-05-11-3" defer></script>
 </body>
 </html>
